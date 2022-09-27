@@ -7,6 +7,8 @@ import everybodyMP3 from "./song-mp3/everybody.mp3";
 import pinkPlusWhiteMP3 from "./song-mp3/pinkPlusWhite.mp3";
 import saviorMP3 from "./song-mp3/savior.mp3";
 import xsMP3 from "./song-mp3/XS.mp3";
+import fancyClown from "./song-mp3/fancyClown.mp3";
+import heartless from "./song-mp3/heartless.mp3";
 
 import frackOceanCover from "./song-covers/frank-ocean-cover.jpg";
 import kendrickLamarCover from "./song-covers/kendrick-lamar-cover.jpg";
@@ -15,6 +17,8 @@ import samphaCover from "./song-covers/sampha-cover.jpg";
 import rinaSawayamaCover from "./song-covers/sawayama-cover.jpg";
 import solangeCover from "./song-covers/solange-cover.jpg";
 import steveLacyCover from "./song-covers/steve-lacy-cover.jpg";
+import MFDOOMCover from "./song-covers/MFDOOMCover.png";
+import kanyeWestCover from "./song-covers/kanye-west.jpg";
 
 const songs = [
   {
@@ -80,6 +84,22 @@ const songs = [
     audio: badHabitMP3,
     isLiked: false,
     id: 8,
+  },
+  {
+    title: "Fancy Clown",
+    artist: "Madvillain",
+    cover: MFDOOMCover,
+    audio: fancyClown,
+    isLiked: false,
+    id: 9,
+  },
+  {
+    title: "Heartless",
+    artist: "Kanye West",
+    cover: kanyeWestCover,
+    audio: heartless,
+    isLiked: false,
+    id: 10,
   },
 ];
 

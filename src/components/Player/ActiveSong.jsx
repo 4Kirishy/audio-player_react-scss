@@ -7,22 +7,27 @@ import {
   FaForward,
   FaBackward,
 } from "react-icons/fa";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext, useEffect } from "react";
+import { LikeContext } from "../../context/LikeContext";
 
 const ActiveSong = ({
   song,
   addToLiked,
   removeFromLiked,
-  playing,
   getActiveSong,
   songsAmount,
 }) => {
   //states
   const [like, setLike] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
   // const [isRandomOn, setIsRandomOn] = useState(true);
+
+  const { isPlaying, setIsPlaying } = useContext(LikeContext);
   //refs
   const audioPlayer = useRef();
+  // console.log(audioPlayer.current.ended);
+  // console.log(audioPlayer.current.currentTime);
+
+  // audioPlayer.current.ended && nextSong();
 
   const toggleLike = () => {
     const prevValue = like;
@@ -65,7 +70,8 @@ const ActiveSong = ({
         src={song.audio}
         preload="auto"
         ref={audioPlayer}
-        autoplay="autoplay"
+        autoPlay
+        controls
       />
       <div className={styles.activeSongTitleName}>{song.title}</div>
       <div className={styles.activeSongCover}>

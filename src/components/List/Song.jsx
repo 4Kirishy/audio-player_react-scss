@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import styles from "./Song.module.scss";
+import { LikeContext } from "../../context/LikeContext";
 
 const Song = ({ song, onClick, addToLiked, removeFromLiked }) => {
   const [like, setLike] = useState(false);
   const [isActive, setIsActive] = useState(false);
+
+  const { setIsPlaying } = useContext(LikeContext);
 
   const toggleLike = () => {
     const prevValue = like;
@@ -17,7 +20,8 @@ const Song = ({ song, onClick, addToLiked, removeFromLiked }) => {
 
   const toggleSong = () => {
     onClick(song.id);
-    setIsActive(true);
+    setIsPlaying(true);
+    // setIsActive(true);
   };
 
   return (

@@ -10,6 +10,7 @@ const App = () => {
   const [activeSong, setActiveSong] = useState(songs[0]);
   const [playing, setPlaying] = useState(false);
   const [isBurger, setIsBurger] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const getActiveSong = (id) => {
     songs.forEach((song) => {
@@ -37,7 +38,14 @@ const App = () => {
   return (
     <div className="App">
       <LikeContext.Provider
-        value={{ addToLiked, removeFromLiked, isBurger, setIsBurger }}
+        value={{
+          addToLiked,
+          removeFromLiked,
+          isBurger,
+          setIsBurger,
+          isPlaying,
+          setIsPlaying,
+        }}
       >
         <List
           songs={songs}
