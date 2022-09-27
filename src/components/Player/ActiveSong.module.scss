@@ -1,0 +1,98 @@
+.activeSongLikeBtn,
+.skip,
+.playPause {
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 28px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.activeSong {
+  --blur-color: #df4a43;
+  --play-pause-bg: #f7f0ef;
+  --text-color: #373737;
+
+  margin-top: 80px;
+  max-width: 300px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+
+  &TitleName,
+  &Artist {
+    font-family: Comfortaa;
+  }
+
+  &TitleName {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: calc(36px / 32px * 100%);
+  }
+
+  &Artist {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: calc(27px / 24px * 100%);
+  }
+
+  &Box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &LikeBtn {
+    font-size: 24px;
+  }
+
+  &Cover {
+    position: relative;
+    img {
+      position: relative;
+      z-index: 2;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -25px;
+      left: -25px;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: var(--blur-color);
+      filter: blur(200px);
+    }
+  }
+}
+
+.controls {
+  &Btns {
+    // width: 70%;
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+    gap: 40px;
+
+    .playPause {
+      //   border: 1px solid black;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--play-pause-bg);
+      font-size: 36px;
+
+      .play {
+        transform: translateX(2px);
+      }
+    }
+  }
+}

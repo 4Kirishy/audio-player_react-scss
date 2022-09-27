@@ -2,7 +2,7 @@
 
 :root {
   --text-color: #373737;
-  --bg-color: #ececec;
+  --bg-color: #eccecc;
 }
 
 html {
@@ -17,6 +17,7 @@ html {
   font-size: inherit;
   font-weight: inherit;
   font-family: "Work Sans";
+  color: var(--text-color);
 
   box-sizing: border-box;
 
