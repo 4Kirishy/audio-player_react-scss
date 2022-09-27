@@ -44,7 +44,12 @@ const App = () => {
           likedSongs={likedSongs}
           getActiveSong={getActiveSong}
         />
-        <Player activeSong={activeSong} playing={playing} />
+        <Player
+          activeSong={activeSong}
+          playing={playing}
+          getActiveSong={getActiveSong}
+          songsAmount={songs.length}
+        />
       </LikeContext.Provider>
     </div>
   );

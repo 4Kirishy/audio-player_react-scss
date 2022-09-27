@@ -1,9 +1,9 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { LikeContext } from "../../context/LikeContext";
 import ActiveSong from "./ActiveSong";
 import styles from "./Player.module.scss";
 
-const Player = ({ activeSong, playing }) => {
+const Player = ({ activeSong, playing, getActiveSong, songsAmount }) => {
   //states
 
   const { addToLiked, removeFromLiked, isBurger, setIsBurger } =
@@ -26,6 +26,8 @@ const Player = ({ activeSong, playing }) => {
           addToLiked={addToLiked}
           removeFromLiked={removeFromLiked}
           playing={playing}
+          getActiveSong={getActiveSong}
+          songsAmount={songsAmount}
         />
       </div>
     </div>

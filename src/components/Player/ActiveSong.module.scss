@@ -38,7 +38,7 @@
 
   &Artist {
     font-weight: 400;
-    font-size: 24px;
+    font-size: 22px;
     line-height: calc(27px / 24px * 100%);
   }
 
@@ -75,6 +75,7 @@
 }
 
 .controls {
+  margin-top: 15px;
   &Btns {
     // width: 70%;
     display: flex;

@@ -9,11 +9,18 @@ import {
 } from "react-icons/fa";
 import { useState, useRef } from "react";
 
-const ActiveSong = ({ song, addToLiked, removeFromLiked, playing }) => {
+const ActiveSong = ({
+  song,
+  addToLiked,
+  removeFromLiked,
+  playing,
+  getActiveSong,
+  songsAmount,
+}) => {
   //states
   const [like, setLike] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(playing);
-
+  const [isPlaying, setIsPlaying] = useState(false);
+  // const [isRandomOn, setIsRandomOn] = useState(true);
   //refs
   const audioPlayer = useRef();
 
@@ -34,9 +41,32 @@ const ActiveSong = ({ song, addToLiked, removeFromLiked, playing }) => {
     else audioPlayer.current.pause();
   };
 
+  const nextSong = () => {
+    // if (isRandomOn) {
+    //   getActiveSong(Math.floor(Math.random() * songsAmount));
+    //   return;
+    // }
+    if (song.id + 1 > songsAmount) getActiveSong(1);
+    else getActiveSong(song.id + 1);
+
+    setIsPlaying(true);
+  };
+
+  const prevSong = () => {
+    if (song.id - 1 < 1) getActiveSong(songsAmount);
+    else getActiveSong(song.id - 1);
+
+    setIsPlaying(true);
+  };
+
   return (
     <div className={styles.activeSong}>
-      <audio src={song.audio} preload="metadata" ref={audioPlayer} />
+      <audio
+        src={song.audio}
+        preload="auto"
+        ref={audioPlayer}
+        autoplay="autoplay"
+      />
       <div className={styles.activeSongTitleName}>{song.title}</div>
       <div className={styles.activeSongCover}>
         <img src={song.cover} alt="cover" />
@@ -49,13 +79,13 @@ const ActiveSong = ({ song, addToLiked, removeFromLiked, playing }) => {
       </div>
       <div className={styles.controls}>
         <div className={styles.controlsBtns}>
-          <button className={styles.skip}>
+          <button className={styles.skip} onClick={prevSong}>
             <FaBackward />
           </button>
           <button className={styles.playPause} onClick={togglePlayPause}>
             {isPlaying ? <FaPause /> : <FaPlay className={styles.play} />}
           </button>
-          <button className={styles.skip}>
+          <button className={styles.skip} onClick={nextSong}>
             <FaForward />
           </button>
         </div>
