@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500&family=Work+Sans:wght@300;400&display=swap");
+
+:root {
+  --text-color: #373737;
+  --bg-color: #ececec;
+}
+
+html {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: "Work Sans";
+
+  box-sizing: border-box;
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+}
+
+body {
+  background: var(--bg-color);
+  overflow: hidden;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
