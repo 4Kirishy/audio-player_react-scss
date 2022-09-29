@@ -19,11 +19,13 @@ const ActiveSong = ({
 }) => {
   //states
   const [like, setLike] = useState(false);
+  const [progress, setProgress] = useState(0);
   // const [isRandomOn, setIsRandomOn] = useState(true);
 
   const { isPlaying, setIsPlaying } = useContext(LikeContext);
   //refs
   const audioPlayer = useRef();
+  const progressBar = useRef();
   // console.log(audioPlayer.current.ended);
   // console.log(audioPlayer.current.currentTime);
 
@@ -64,6 +66,26 @@ const ActiveSong = ({
     setIsPlaying(true);
   };
 
+  const onPlaying = () => {
+    setProgress(
+      (audioPlayer.current.currentTime / audioPlayer.current.duration) * 100
+    );
+
+    if (audioPlayer.current.ended) nextSong();
+  };
+
+  // const dragThumb = () => {};
+
+  const dragTo = (e) => {
+    const progress = e.nativeEvent.offsetX / progressBar.current.clientWidth;
+    console.log(
+      e.nativeEvent.offsetX,
+      progressBar.current.clientWidth,
+      progress
+    );
+    audioPlayer.current.currentTime = progress * audioPlayer.current.duration;
+  };
+
   return (
     <div className={styles.activeSong}>
       <audio
@@ -71,7 +93,7 @@ const ActiveSong = ({
         preload="auto"
         ref={audioPlayer}
         autoPlay
-        controls
+        onTimeUpdate={onPlaying}
       />
       <div className={styles.activeSongTitleName}>{song.title}</div>
       <div className={styles.activeSongCover}>
@@ -94,6 +116,29 @@ const ActiveSong = ({
           <button className={styles.skip} onClick={nextSong}>
             <FaForward />
           </button>
+        </div>
+        <div
+          className={styles.controlsProgressBar}
+          onClick={dragTo}
+          ref={progressBar}
+        >
+          <div
+            className={styles.songProgress}
+            style={{ width: `${progress}%` }}
+          ></div>
+          <div
+            className={styles.progressThumb}
+            style={{ left: `calc(${progress}% - 7px)` }}
+            // onDrag={dragTo}
+          ></div>
+        </div>
+        <div className={styles.songDuration}>
+          {/* <div className={styles.currentTime}>
+            {Math.floor(audioPlayer.current.currentTime / 60) +
+              "." +
+              (audioPlayer.current.currentTime % 60)}
+          </div>
+          <div className={styles.duration}>{audioPlayer.current.duration}</div> */}
         </div>
       </div>
     </div>
