@@ -16,9 +16,33 @@
   height: 100vh;
   overflow: auto;
 
-  transition: left 0.4s ease-in-out;
+  transition: left 0.4s ease-in-out, top 0.4s ease-in-out;
+  @media (max-width: 476px) {
+    width: 100%;
+  }
   &.active {
     left: 0;
+    @media (max-width: 476px) {
+      padding-top: 120px;
+      top: 0;
+      .listHeaderBox {
+        position: fixed;
+        top: 0;
+        background-color: #dbb3b1;
+        box-shadow: -15px 2px 15px rgba($color: #000000, $alpha: 0.2);
+        width: inherit;
+        padding: 40px 0 20px 0;
+
+        // transition: top 0.5s;
+      }
+    }
+  }
+
+  @media (max-width: 476px) {
+    top: -100%;
+    left: 0;
+
+    margin: 0 auto;
   }
 
   &HeaderBox {
@@ -123,10 +147,15 @@
     font-size: 24px;
     // opacity: 0.7;
   }
+  @media (max-width: 476px) {
+    left: 35%;
+  }
 }
 
 ::-webkit-scrollbar {
   width: 5px;
+  position: relative;
+  z-index: 50;
 
   &-track {
     box-shadow: inset 0 0 5px grey;

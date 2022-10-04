@@ -5,7 +5,7 @@ import { LikeContext } from "../../context/LikeContext";
 
 const Song = ({ song, onClick, addToLiked, removeFromLiked }) => {
   const [like, setLike] = useState(false);
-  const [isActive, setIsActive] = useState(false);
+  // const [isActive, setIsActive] = useState(false);
 
   const { setIsPlaying } = useContext(LikeContext);
 
@@ -26,10 +26,7 @@ const Song = ({ song, onClick, addToLiked, removeFromLiked }) => {
 
   return (
     <div className={styles.wrapper}>
-      <div
-        className={`${styles.song} ${isActive ? styles.active : ""}`}
-        onClick={toggleSong}
-      >
+      <div className={`${styles.song} `} onClick={toggleSong}>
         <div className={styles.songContentBox}>
           <div className={styles.songCover}>
             <img src={song.cover} alt="cover" />

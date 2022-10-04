@@ -20,16 +20,24 @@ const ActiveSong = ({
   //states
   const [like, setLike] = useState(false);
   const [progress, setProgress] = useState(0);
-  // const [isRandomOn, setIsRandomOn] = useState(true);
-
+  const [duration, setDuration] = useState("...");
+  const [currentTime, setCurrentTime] = useState("00:00");
   const { isPlaying, setIsPlaying } = useContext(LikeContext);
+
   //refs
   const audioPlayer = useRef();
   const progressBar = useRef();
-  // console.log(audioPlayer.current.ended);
-  // console.log(audioPlayer.current.currentTime);
 
-  // audioPlayer.current.ended && nextSong();
+  useEffect(() => {
+    const seconds = Math.floor(audioPlayer.current.duration);
+    setDuration(seconds);
+    const currentSeconds = Math.floor(audioPlayer.current.currentTime);
+    setCurrentTime(currentSeconds);
+  }, [
+    audioPlayer?.current?.loadedmetadata,
+    audioPlayer?.current?.readyState,
+    audioPlayer?.current?.currentTime,
+  ]);
 
   const toggleLike = () => {
     const prevValue = like;
@@ -44,15 +52,14 @@ const ActiveSong = ({
     const prevValue = isPlaying;
     setIsPlaying(!prevValue);
 
-    if (!prevValue) audioPlayer.current.play();
-    else audioPlayer.current.pause();
+    if (!prevValue) {
+      audioPlayer.current.play();
+    } else {
+      audioPlayer.current.pause();
+    }
   };
 
   const nextSong = () => {
-    // if (isRandomOn) {
-    //   getActiveSong(Math.floor(Math.random() * songsAmount));
-    //   return;
-    // }
     if (song.id + 1 > songsAmount) getActiveSong(1);
     else getActiveSong(song.id + 1);
 
@@ -71,26 +78,27 @@ const ActiveSong = ({
       (audioPlayer.current.currentTime / audioPlayer.current.duration) * 100
     );
 
-    if (audioPlayer.current.ended) nextSong();
+    audioPlayer.current.ended && nextSong();
   };
 
-  // const dragThumb = () => {};
-
-  const dragTo = (e) => {
+  const skipTo = (e) => {
     const progress = e.nativeEvent.offsetX / progressBar.current.clientWidth;
-    console.log(
-      e.nativeEvent.offsetX,
-      progressBar.current.clientWidth,
-      progress
-    );
     audioPlayer.current.currentTime = progress * audioPlayer.current.duration;
+  };
+
+  const calculateTime = (secs) => {
+    const minutes = Math.floor(secs / 60);
+    const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+    const seconds = Math.floor(secs % 60);
+    const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+    return `${returnedMinutes}:${returnedSeconds}`;
   };
 
   return (
     <div className={styles.activeSong}>
       <audio
         src={song.audio}
-        preload="auto"
+        preload="metadata"
         ref={audioPlayer}
         autoPlay
         onTimeUpdate={onPlaying}
@@ -117,9 +125,10 @@ const ActiveSong = ({
             <FaForward />
           </button>
         </div>
+        {/* progress bar using divs */}
         <div
           className={styles.controlsProgressBar}
-          onClick={dragTo}
+          onClick={skipTo}
           ref={progressBar}
         >
           <div
@@ -129,16 +138,12 @@ const ActiveSong = ({
           <div
             className={styles.progressThumb}
             style={{ left: `calc(${progress}% - 7px)` }}
-            // onDrag={dragTo}
           ></div>
         </div>
-        <div className={styles.songDuration}>
-          {/* <div className={styles.currentTime}>
-            {Math.floor(audioPlayer.current.currentTime / 60) +
-              "." +
-              (audioPlayer.current.currentTime % 60)}
-          </div>
-          <div className={styles.duration}>{audioPlayer.current.duration}</div> */}
+        {/* duration */}
+        <div className={styles.duration}>
+          <div>{!isNaN(currentTime) && calculateTime(currentTime)}</div>
+          <div>{!isNaN(duration) && calculateTime(duration)}</div>
         </div>
       </div>
     </div>

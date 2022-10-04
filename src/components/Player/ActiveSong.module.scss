@@ -17,6 +17,10 @@
   --play-pause-bg: #f7f0ef;
   --text-color: #373737;
 
+  @media (max-width: 476px) {
+    margin-top: 100px;
+  }
+
   margin-top: 80px;
   max-width: 300px;
 
@@ -34,12 +38,20 @@
     font-weight: 500;
     font-size: 32px;
     line-height: calc(36px / 32px * 100%);
+
+    @media (max-width: 476px) {
+      font-size: 24px;
+    }
   }
 
   &Artist {
     font-weight: 400;
     font-size: 22px;
     line-height: calc(27px / 24px * 100%);
+    @media (max-width: 476px) {
+      font-size: 18px;
+      font-weight: 500;
+    }
   }
 
   &Box {
@@ -47,10 +59,17 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+
+    @media (max-width: 476px) {
+      max-width: 250px;
+    }
   }
 
   &LikeBtn {
     font-size: 24px;
+    // @media (max-width: 476px) {
+    //   font-size: 20px;
+    // }
   }
 
   &Cover {
@@ -71,6 +90,9 @@
       background: var(--blur-color);
       filter: blur(200px);
     }
+    @media (max-width: 476px) {
+      max-width: 270px;
+    }
   }
 }
 
@@ -79,8 +101,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+
   &Btns {
+    margin-bottom: 40px;
     // width: 70%;
     display: flex;
     align-items: center;
@@ -98,9 +121,19 @@
       .play {
         transform: translateX(2px);
       }
+
+      @media (max-width: 476px) {
+        width: 80px;
+        height: 80px;
+      }
+    }
+    @media (max-width: 476px) {
+      margin-bottom: 25px;
     }
   }
+
   &ProgressBar {
+    margin-bottom: 5px;
     cursor: pointer;
     width: 300px;
     height: 8px;
@@ -120,11 +153,23 @@
       cursor: pointer;
       position: absolute;
       top: calc(50% - 7px);
-      // left: 0;
       width: 14px;
       height: 14px;
       border-radius: 50%;
       background: #373737;
+    }
+    @media (max-width: 476px) {
+      width: 250px;
+    }
+  }
+
+  .duration {
+    font-size: 16px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: 476px) {
+      width: 250px;
     }
   }
 }

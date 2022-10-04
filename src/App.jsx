@@ -9,7 +9,7 @@ const App = () => {
   const [likedSongs, setLikedSongs] = useState([]);
   const [activeSong, setActiveSong] = useState(songs[0]);
   const [playing, setPlaying] = useState(false);
-  const [isBurger, setIsBurger] = useState(true);
+  const [isBurger, setIsBurger] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
 
   const getActiveSong = (id) => {

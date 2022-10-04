@@ -16,11 +16,11 @@ const Player = ({ activeSong, playing, getActiveSong, songsAmount }) => {
 
   return (
     <div className={styles.player}>
-      <div
-        className={`${styles.burger} ${isBurger ? styles.active : ""}`}
-        onClick={toggleBurger}
-      ></div>
       <div className={styles.playerContainer}>
+        <div
+          className={`${styles.burger} ${isBurger ? styles.active : ""}`}
+          onClick={toggleBurger}
+        ></div>
         <ActiveSong
           song={activeSong}
           addToLiked={addToLiked}
