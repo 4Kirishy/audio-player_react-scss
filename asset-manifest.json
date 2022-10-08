@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/audio-player_react-scss/static/css/main.d92fa5fa.css",
+    "main.js": "/audio-player_react-scss/static/js/main.5d2ad422.js",
+    "static/media/badHabit.mp3": "/audio-player_react-scss/static/media/badHabit.3232bff3139038f03c5b.mp3",
+    "static/media/everybody.mp3": "/audio-player_react-scss/static/media/everybody.774c450241b7c9632d77.mp3",
+    "static/media/bloodOnMe.mp3": "/audio-player_react-scss/static/media/bloodOnMe.5b956455c876b1fe0651.mp3",
+    "static/media/almeda.mp3": "/audio-player_react-scss/static/media/almeda.ac41080faa9ad5ff45b2.mp3",
+    "static/media/XS.mp3": "/audio-player_react-scss/static/media/XS.a178bd35fe453a790b0b.mp3",
+    "static/media/pinkPlusWhite.mp3": "/audio-player_react-scss/static/media/pinkPlusWhite.06b92338fbbf25a69320.mp3",
+    "static/media/mySkinMyLogo.mp3": "/audio-player_react-scss/static/media/mySkinMyLogo.370a92c7c1cacd8dc584.mp3",
+    "static/media/heartless.mp3": "/audio-player_react-scss/static/media/heartless.4e8a9e16409b34b83fe1.mp3",
+    "static/media/fancyClown.mp3": "/audio-player_react-scss/static/media/fancyClown.65cc1a58b13e6e9355bb.mp3",
+    "static/media/savior.mp3": "/audio-player_react-scss/static/media/savior.136dd0f9db70aa757d8b.mp3",
+    "static/media/MFDOOMCover.png": "/audio-player_react-scss/static/media/MFDOOMCover.17cec72fc2d208c222ac.png",
+    "static/media/steve-lacy-cover.jpg": "/audio-player_react-scss/static/media/steve-lacy-cover.061697277d4172b23043.jpg",
+    "static/media/sawayama-cover.jpg": "/audio-player_react-scss/static/media/sawayama-cover.05168a6e3e44691d0853.jpg",
+    "static/media/kendrick-lamar-cover.jpg": "/audio-player_react-scss/static/media/kendrick-lamar-cover.393f964f58085818777e.jpg",
+    "static/media/solange-cover.jpg": "/audio-player_react-scss/static/media/solange-cover.308fc28c0ac2e2341ead.jpg",
+    "static/media/frank-ocean-cover.jpg": "/audio-player_react-scss/static/media/frank-ocean-cover.55e74226c50e5a3a7360.jpg",
+    "static/media/sampha-cover.jpg": "/audio-player_react-scss/static/media/sampha-cover.77ee2c466015f0e81d73.jpg",
+    "static/media/mac-miller-cover.jpg": "/audio-player_react-scss/static/media/mac-miller-cover.35f07a118f41d395da02.jpg",
+    "static/media/kanye-west.jpg": "/audio-player_react-scss/static/media/kanye-west.d4670e151cfbedf093c9.jpg",
+    "index.html": "/audio-player_react-scss/index.html",
+    "main.d92fa5fa.css.map": "/audio-player_react-scss/static/css/main.d92fa5fa.css.map",
+    "main.5d2ad422.js.map": "/audio-player_react-scss/static/js/main.5d2ad422.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d92fa5fa.css",
+    "static/js/main.5d2ad422.js"
+  ]
+}
