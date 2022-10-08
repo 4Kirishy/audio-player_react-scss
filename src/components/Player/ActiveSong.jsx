@@ -27,6 +27,7 @@ const ActiveSong = ({
   //refs
   const audioPlayer = useRef();
   const progressBar = useRef();
+  const volumeBar = useRef();
 
   useEffect(() => {
     const seconds = Math.floor(audioPlayer.current.duration);
@@ -94,6 +95,14 @@ const ActiveSong = ({
     return `${returnedMinutes}:${returnedSeconds}`;
   };
 
+  const handleVolume = () => {
+    audioPlayer.current.volume = volumeBar.current.value / 100;
+    volumeBar.current.style.setProperty(
+      "--seek-before-width",
+      `${audioPlayer.current.volume * 100}%`
+    );
+  };
+
   return (
     <div className={styles.activeSong}>
       <audio
@@ -145,6 +154,15 @@ const ActiveSong = ({
           <div>{!isNaN(currentTime) && calculateTime(currentTime)}</div>
           <div>{!isNaN(duration) && calculateTime(duration)}</div>
         </div>
+        {/* volume bar */}
+        <input
+          type="range"
+          min="0"
+          max="100"
+          onChange={handleVolume}
+          ref={volumeBar}
+          className={styles.volumeBar}
+        />
       </div>
     </div>
   );

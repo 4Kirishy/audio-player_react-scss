@@ -85,8 +85,8 @@
       transition: width 0.2s, transform 0.4s ease-in-out;
     }
 
-    // &.active {
-    //   transform: rotate(45deg);
-    // }
+    &.active {
+      transform: rotate(45deg);
+    }
   }
 }
